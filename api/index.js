@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
+const cors = require('cors');
 
 dotenv.config();
 mongoose.set("strictQuery", false);
@@ -21,7 +22,7 @@ mongoose
   });
 
 app.use(express.json());
-
+app.use(cors());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
